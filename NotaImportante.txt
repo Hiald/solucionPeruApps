@@ -1,0 +1,46 @@
+
+1. En el proyecto "backendOlimpiada" debe cambiarse las credenciales dentro del archivo "Web.Config", por defecto está con las credenciales de mi SQL server de acceso local.
+
+Línea 8 : "connectionString="Data Source=JONHIALD\SQLEXPRESS; uid=sa; pwd=12345; Initial Catalog=bdolimpiada"
+
+*esto apunta a la base de datos, siendo como:*
+
+Data Source: la ruta del servidor
+uid = usuario
+pwd = clave
+Initial Catalog = el nombre de la base de datos ("bdolimpiada" se llama)
+
+
+2. Al ejecutarse el backend, lo hará en la siguiente ruta http://localhost:51596/, cambiar si hay algun servicio ejecutándose con esa ruta.
+
+
+3. En el archivo "Web.config" del proyecto frontendOlimpiada, debe redirigir a dicha ruta ya mencionada en el punto 3. Por defecto lo está, pero de lo contrario cambiarlo.
+
+Línea 13: <add key="routews" value="http://localhost:51596" /> (esto apunta al proyecto "backendOlimpiada")
+
+
+4. No hay usuarios registrados, por favor registre una cuenta para que pueda logearse o iniciar sesión en caso contrario
+
+
+
+Datos Para Postman
+
+USUARIO
+
+http://localhost:51596/api/usuario/APIRegistrarUsuario?wsusuario=test&wsclave=123
+http://localhost:51596/api/usuario/APIListarUsuario?wusuario=test&wclave=123&valor=o
+
+
+SEDE 
+
+http://localhost:51596/api/sede/APIRegistrarSede?wsnombre=test&wscomplejo=test&wsresupuesto=15
+http://localhost:51596/api/sede/APIListarSede?wstipolistado=test&sedeid=test
+http://localhost:51596/api/sede/APIActualizarSede?wssedeid=1&wsnombre=test&wscomplejo=test&wspresupuesto=20
+http://localhost:51596/api/sede/APIEliminarSede?wsedeid=1
+
+COMPLEJO DEPORTIVO
+
+http://localhost:51596/api/sede/APIRegistrarDeportivo?wslocalizacion=test&wsjefeOrganizacion=test&wsareatotal=area&wssedeid=1
+http://localhost:51596/api/sede/APIListarDeportivo?wstipolistado=0&wsdeportivoid=0
+http://localhost:51596/api/sede/APIActualizarDeportivo?wsdeportivoid=1&wslocalizacion=test&wsjefeorganizacion=test&wsareatotal=test&wssedeid=1
+http://localhost:51596/api/sede/APIEliminarDeportivo?wdeportivoid=1

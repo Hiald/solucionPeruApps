@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Deportivo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div>
+    <ul>
+        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","sede")">Menu Sede</a></li>
+        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","deportivo")">Menu Deportivo</a></li>
+    </ul>
+</div>
+<br />
+<div class="container pull-up mt-5">
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">
+            Nuevo complejo deportivo
+        </button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="tblDeportivo" class="table" style="width:100%">
+                            <colgroup>
+                                <col width="20%" />
+                                <col width="30%" />
+                                <col width="10%" />
+                                <col width="20%" />
+                                <col width="10%" />
+                                <col width="10%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Localizaci&oacute;n</th>
+                                    <th>Jefe de la organizaci&oacute;n</th>
+                                    <th>&Aacute;rea</th>
+                                    <th>Sede</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Registrar -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Registrar Nuevo complejo Deportivo</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="needs-validation" novalidate id="frm1">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="txLocalizacion">Nombre del complejo</label>
+                            <input class="form-control" type="text" id="txLocalizacion" placeholder="" value="" required maxlength="50">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txJefeOrganizacion">Jefe de la organización</label>
+                            <input class="form-control" type="text" id="txJefeOrganizacion" placeholder="" value="" required maxlength="100">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txAreaTotal">Area total</label>
+                            <input class="form-control" type="text" id="txAreaTotal" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="slcSede">Seleccione una sede:</label>
+                            <select class="form-control custom-select" id="slcSede" required>
+                                <option value="">Seleccione una opción</option>
+                            </select>
+                            <div class="invalid-tooltip">Seleccione una opción.</div>
+                            <div class="valid-tooltip"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="fn_Limpiar()">Cerrar</button>
+                    <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarA" onclick="fn_Registrar()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Editar -->
+<div class="modal fade" id="modalEditarDeportivo" tabindex="-1" role="dialog">
+    <input type="hidden" value="" data-iddeportivo="" id="hdddeportivoeditar" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar Deportivo</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="needs-validation" novalidate id="frm2">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="txLocalizacionUpd">Nombre del complejo deportivo</label>
+                            <input class="form-control" type="text" id="txLocalizacionUpd" placeholder="" value="" required maxlength="50">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txJefeOrganizacionUpd">Jefe de la organización</label>
+                            <input class="form-control" type="text" id="txJefeOrganizacionUpd" placeholder="" value="" required maxlength="100">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txAreaTotalUpd">Area total</label>
+                            <input class="form-control" type="text" id="txAreaTotalUpd" placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="slcSedeUpd">Seleccione una sede:</label>
+                            <select class="form-control custom-select" id="slcSedeUpd" required>
+                                <option value="">Seleccione una opción</option>
+
+                            </select>
+                            <div class="invalid-tooltip">Seleccione una opción.</div>
+                            <div class="valid-tooltip"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal" onclick="fn_LimpiarEditar()">Cerrar</button>
+                    <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarEd" onclick="fn_Actualizar()">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar -->
+<div class="modal fade" id="modalEliminarDeportivo" tabindex="-1" role="dialog">
+    <input type="hidden" value="" data-idDeportivoEliminar="" id="hddDeportivoEliminar" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="needs-validation" novalidate id="frm3">
+                <div class="modal-body">
+                    <h5 class="h5">¿Desea eliminar este deportivo?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarEl" onclick="fn_ConfimarEliminar()">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#frm1').submit(false);
+        $('#frm2').submit(false);
+    </script>
+    <script src="~/Scripts/deportivo.js"></script>
+}

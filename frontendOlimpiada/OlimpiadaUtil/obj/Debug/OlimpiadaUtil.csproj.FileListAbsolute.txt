@@ -1,0 +1,5 @@
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\frontendOlimpiada\OlimpiadaUtil\bin\Debug\OlimpiadaUtil.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\frontendOlimpiada\OlimpiadaUtil\bin\Debug\OlimpiadaUtil.pdb
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\frontendOlimpiada\OlimpiadaUtil\obj\Debug\OlimpiadaUtil.csproj.CoreCompileInputs.cache
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\frontendOlimpiada\OlimpiadaUtil\obj\Debug\OlimpiadaUtil.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\frontendOlimpiada\OlimpiadaUtil\obj\Debug\OlimpiadaUtil.pdb

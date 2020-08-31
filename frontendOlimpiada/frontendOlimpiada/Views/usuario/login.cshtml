@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .login-container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .login-form-1 {
+        padding: 7%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+        .login-form-1 h3 {
+            text-align: center;
+            color: #333;
+        }
+
+    .login-form-2 {
+        padding: 5%;
+        background: #0062cc;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+        .login-form-2 h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+    .login-container form {
+        padding: 10%;
+    }
+
+    .btnSubmit {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
+    }
+
+    .login-form-1 .btnSubmit {
+        font-weight: 600;
+        color: #fff;
+        background-color: #0062cc;
+    }
+
+    .login-form-2 .btnSubmit {
+        font-weight: 600;
+        color: #0062cc;
+        background-color: #fff;
+    }
+
+    .login-form-2 .ForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-form-1 .ForgetPwd {
+        color: #0062cc;
+        font-weight: 600;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Iniciar sesión</h3>
+            <div class="form-group">
+                <input type="text" id="ipusuario" class="form-control" placeholder="Usuario" value="" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <input type="password" id="ipclave" class="form-control" placeholder="Tu clave" value="" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success" id="btnis">Iniciar sesión</button>
+            </div>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>Reg&iacute;strate</h3>
+            <div class="form-group">
+                <input type="text" id="ipusuarionuevo" class="form-control" placeholder="Tu usuario" value="" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <input type="password" id="ipclavenuevo" class="form-control" placeholder="Tu clave" value="" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <input type="password" id="ipclaverepnuevo" class="form-control" placeholder="Confirma tu clave" value="" maxlength="25" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-white" id="btnre">Reg&iacute;strate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script>
+    //obtenemos mediante jquery el acceso al evento click del boton
+    $('#btnis').click(function () {
+        //obtenemos las variables de los campos a utilizar
+        var txUsuario = $('#ipusuario').val();
+        var txClave = $('#ipclave').val();
+
+        if (txUsuario.length === 0 || txClave.length === 0) {
+            alert("completar campos");
+            return;
+        }
+
+        //hacemos una llamada ajax
+        $.ajax({
+            //tipo de llamada
+            type: "POST",
+            //la ruta del controlador
+            url: dataRoute + "usuario/loginusuario",
+            //en un json, se ponen los parametros indicados de la accion del controlador
+            data: {
+                "wusuario": txUsuario,
+                "wclave": txClave
+            },
+            //si es correcta la llamada
+            success: function (data) {
+                if (data.iResultado === -2) {
+                    alert(data.iResultadoIns);
+                } else if (data.iResultado === -5) {
+                    alert(data.iResultadoIns);
+                } else if (data.iResultado === 1) {
+                    location.replace('@Url.Action("Index", "sede")');
+                }
+            },
+            //si ocurre un error
+            error: function (data) {
+                console.log(data);
+            }
+        });
+
+    });
+
+    $('#btnre').click(function () {
+
+        var txUsuario = $('#ipusuarionuevo').val();
+        var txClave = $('#ipclavenuevo').val();
+        var txClaveConfirmar = $('#ipclaverepnuevo').val();
+
+        if (txUsuario.length === 0 || txClave.length === 0 || txClaveConfirmar.length === 0) {
+            alert("completar campos");
+            return;
+        }
+
+        if (txClave === txClaveConfirmar) {
+            $.ajax({
+                type: "POST",
+                url: dataRoute + "usuario/registrarusuario",
+                data: {
+                    "wusuario": txUsuario,
+                    "wclave": txClave
+                },
+                success: function (data) {
+                    if (data.iResultado === 0) {
+                        alert(data.iResultadoIns);
+                    } else if (data.iResultado === -2) {
+                        alert(data.iResultadoIns);
+                    } else if (data.iResultado === -5) {
+                        alert(data.iResultadoIns);
+                    } else if (data.iResultado === 1) {
+                        location.replace('@Url.Action("Index", "sede")');
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        } else {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+
+    });
+</script>
+}

@@ -1,0 +1,14 @@
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaTD.dll.config
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaTD.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaTD.pdb
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\MySql.Data.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaAD.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaED.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaAD.pdb
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaAD.dll.config
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\bin\Debug\OlimpiadaED.pdb
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\obj\Debug\OlimpiadaTD.csprojAssemblyReference.cache
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\obj\Debug\OlimpiadaTD.csproj.CoreCompileInputs.cache
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\obj\Debug\OlimpiadaTD.csproj.CopyComplete
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\obj\Debug\OlimpiadaTD.dll
+C:\Users\jonat\Desktop\peruappsSolucion_SEMINARIOROQUEJONATHANERIC\backendOlimpiada\OlimpiadaTD\obj\Debug\OlimpiadaTD.pdb

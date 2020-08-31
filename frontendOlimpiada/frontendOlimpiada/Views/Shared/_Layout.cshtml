@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olimpiadas Peru APP</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script>
+        var dataRoute = "@Url.Content("~")";
+        var dataPath = window.location.pathname;
+        var dataHost = window.location.host;
+    </script>
+</head>
+<body>
+
+    @RenderBody()
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/datatable.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

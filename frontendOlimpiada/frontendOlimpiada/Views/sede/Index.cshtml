@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Sede";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div>
+    <ul>
+        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","sede")">Menu Sede</a></li>
+        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","deportivo")">Menu Deportivo</a></li>
+    </ul>
+</div>
+<br />
+<div class="container pull-up mt-5">
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">
+            Nueva Sede
+        </button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="tblSede" class="table" style="width:100%">
+                            <colgroup>
+                                <col width="40%" />
+                                <col width="20%" />
+                                <col width="20%" />
+                                <col width="10%" />
+                                <col width="10%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Número de complejos</th>
+                                    <th>Presupuesto</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Registrar -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Registrar Nueva Sede</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="needs-validation" novalidate id="frm1">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="txNombre">Nombre de la sede</label>
+                            <input class="form-control" type="text" id="txNombre" placeholder="" value="" required maxlength="50">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txcomplejo">N&uacute;mero de compejos</label>
+                            <input class="form-control" type="number" id="txcomplejo" placeholder="" value="" required maxlength="100">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txpresupuesto">Presupuesto</label>
+                            <input class="form-control" type="text" name="txpresupuesto" id="txpresupuesto" placeholder="0.00" value="" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal" id="btnCerrarA" onclick="fn_Limpiar()">Cerrar</button>
+                    <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarA" onclick="fn_Registrar()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Editar -->
+<div class="modal fade" id="modalEditarSede" tabindex="-1" role="dialog">
+    <input type="hidden" value="" data-idsede="" id="hddsedeeditar" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar Sede</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form class="needs-validation" novalidate id="frm2">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="txNombreUpd">Nombre de la sede</label>
+                            <input class="form-control" type="text" id="txNombreUpd" placeholder="" value="" required maxlength="50">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txcomplejoUpd">N&Uacute;mero de compejos</label>
+                            <input class="form-control" type="number" id="txcomplejoUpd" placeholder="" value="" required maxlength="100">
+                            <div class="valid-tooltip"></div>
+                            <div class="invalid-tooltip">Campo requerido.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="txpresupuestoUpd">Presupuesto</label>
+                            <input class="form-control" type="text" name="txpresupuestoUpd" id="txpresupuestoUpd" placeholder="0.00" value="" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal" id="btnCerrarEd" onclick="fn_LimpiarEditar()">Cerrar</button>
+                    <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarEd" onclick="fn_Actualizar()">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar -->
+<div class="modal fade" id="modalEliminarSede" tabindex="-1" role="dialog">
+    <input type="hidden" value="" data-idSedeEliminar="" id="hddSedeEliminar" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="h5">¿Desea eliminar la sede?</h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-success btn-shadow btn-sm" id="btnGuardarEl" onclick="fn_ConfimarEliminar()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#frm1').submit(false);
+        $('#frm2').submit(false);
+    </script>
+    <script src="~/Scripts/sede.js"></script>
+}
